@@ -152,7 +152,10 @@ export default function ProductFormPage() {
     <div className="max-w-2xl mx-auto space-y-6">
       <div className="flex items-center gap-4">
         <button
-          onClick={() => navigate(isEditing && id ? `/products/${id}` : -1)}
+          onClick={() => {
+            if (isEditing && id) navigate(`/products/${id}`);
+            else navigate(-1);
+          }}
           className="rounded-lg p-2 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
         >
           <ArrowLeft className="h-5 w-5 text-slate-600 dark:text-slate-400" />
